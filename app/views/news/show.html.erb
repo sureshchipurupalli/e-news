@@ -1,0 +1,56 @@
+<div class="row">
+  <h1>News</h1>
+
+  <input type="hidden" id="news" value="<%= @news.id %>">
+
+  <p>
+    <b>TITLE: </b>
+    <%= @news.title %>
+  </p>
+
+
+  <p>
+    <b>Category: </b>
+    <%= @news.category %>
+  </p>
+  
+  <p>
+    <b>keywords: </b>
+    <%= @news.keywords %>
+  </p>
+ 
+  <p>
+    <b>Description: </b>
+    <%= @news.description %>
+  </p>
+  
+  <div class="form-actions">
+    <%= link_to 'Back', news_index_path, :class => 'btn btn-mini'  %>
+    <%= link_to 'Edit news', edit_news_path(@news), :class => 'btn btn-mini' %>
+    <%= link_to 'Delete', news_path(@news), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-mini' %>
+    
+  </div>
+
+<h2>Pictures</h2>
+</div>
+
+
+<div class="col-md-8">
+  <div class="container1" id="container">
+    <div class="gallery" role="listbox">
+
+      <ul class="row" >
+				
+        <% if @news_photos %>
+        <% @news_photos.each do |news_photo| %>
+      
+        <li><!--a tabindex="1"--><%= image_tag news_photo.image.url(), class:"jbox-img"%><!--/a--></li>
+         <!--span class="close"></span-->
+        <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div><br>
+</div>
+
+

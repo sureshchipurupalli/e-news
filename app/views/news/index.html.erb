@@ -1,0 +1,37 @@
+<div style="margin-top:25px; margin-bottom:150px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+				<ul class="sidebar-list">
+					<li class="sidebar-item"><%= link_to "News", news_index_path, class:"sidebar-link active"%></li>
+					
+					
+				</ul>
+			</div>
+			<div class="col-md-10">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="background-color:#6dae4e;">
+						News(<%= @news.length %>)
+					</div>
+					<div class="panel-body">
+							<% @news.each do |news| %>
+							<div class="row">
+								<div class="col-md-2">
+									<%= image_tag news.news_photos[0].image.url if news.news_photos.length > 0 %>
+								</div>
+								<div class="col-md-2">
+									<h4><%= link_to news.title, news %></h4>
+								</div>
+								<div class="col-md-3 right">
+									<%= link_to "Edit", edit_news_path(news), class: "btn btn-green"%>
+								</div>
+							</div>
+							<hr/>
+						<% end %>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
