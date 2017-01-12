@@ -33,6 +33,21 @@ end
   def edit
      @news_photos = @news.news_photos
   end
+
+   def update
+      if @news.update(news_params)
+      if params[:images]
+        params[:images].each do |image|
+          @news.news_photos.create(image: image)
+        end
+      end
+      redirect_to edit_news_path(@news), notice: "Updated..."
+    else
+      render :edit
+    end
+  end
+
+  
   def destroy
     @news = News.find(params[:id])
     @news.destroy
