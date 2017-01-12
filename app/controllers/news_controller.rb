@@ -33,7 +33,17 @@ end
   def edit
      @news_photos = @news.news_photos
   end
+  def destroy
+    @news = News.find(params[:id])
+    @news.destroy
 
+    respond_to do |format|
+      format.html { redirect_to news_index_path }
+     # format.json { head :no_content }
+   end
+ end
+
+  
   def destroy
     @news = News.find(params[:id])
     @news.destroy
