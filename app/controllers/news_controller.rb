@@ -6,7 +6,10 @@ def index
 
 end
 def new
-    @news = News.new
+   unless current_user.state == true
+	@news = News.new
+    end
+
 end
 
  def show

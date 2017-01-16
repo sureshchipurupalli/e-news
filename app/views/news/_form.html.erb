@@ -9,8 +9,7 @@
 <%= form_for @news, :html => { :class => 'form-horizontal', multipart: true } do |f| %>
     <%= f.select :category, [["Sports","Sports"], ["Entertainment","Entertainment"], ["National","National"],
                                                 ["International","International"],
-                                                 ["Arts","Arts"],
-                                        ], id: 'category', prompt: 'Select...', :required => false, class: 'form-control' %>
+                                                 ["Arts","Arts"],], id: 'category', prompt: 'Select...', :required => false, class: 'form-control' %>
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
