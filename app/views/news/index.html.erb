@@ -1,37 +1,25 @@
-<div style="margin-top:25px; margin-bottom:150px;">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-2">
-				<ul class="sidebar-list">
-					<li class="sidebar-item"><%= link_to "News", news_index_path, class:"sidebar-link active"%></li>
-					
-					
-				</ul>
-			</div>
-			<div class="col-md-10">
-				<div class="panel panel-default">
-					<div class="panel-heading" style="background-color:#6dae4e;">
-						News(<%= @news.length %>)
-					</div>
-					<div class="panel-body">
-							<% @news.each do |news| %>
-							<div class="row">
-								<div class="col-md-2">
-									<%= image_tag news.news_photos[0].image.url if news.news_photos.length > 0 %>
-								</div>
-								<div class="col-md-2">
-									<h4><%= link_to news.title, news %></h4>
-								</div>
-								<div class="col-md-3 right">
-									<%= link_to "Edit", edit_news_path(news), class: "btn btn-green"%>
-								</div>
-							</div>
-							<hr/>
-						<% end %>
-					</div>
-				</div>
-			</div>	
+<style type="text/css">
+	figure img
+	{
+		width: 100%;
+		height: 319px;
+	}
+</style>
+<div class="container-fluid">
+		<%= link_to "News", news_index_path, class:"sidebar-link active"%>
+		<div class="panel-heading" style="background-color:#6dae4e;">
+			News(<%= @news.length %>)
 		</div>
-	</div>
-</div>
-
+		<div class="row fh5co-post-entry">
+			<% @news.each do |news| %>
+				<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+					<figure>
+						<a href="#"><%= image_tag news.news_photos[0].image.url if news.news_photos.length > 0 %></a>
+					</figure>
+					<span class="fh5co-meta"><a href="#"><%= link_to news.title, news %></a></span>
+					<h2 class="fh5co-article-title"><%= link_to "Edit", edit_news_path(news), class: "btn btn-green"%></h2>
+					<span class="fh5co-meta fh5co-date">March 6th, 2016</span>
+				</article>
+			<% end %>	
+		</div>
+</div>			
