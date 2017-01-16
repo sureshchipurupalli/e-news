@@ -1,10 +1,7 @@
-<script src="/assets/jquery.cleditor.min.js"></script>
-<link rel="stylesheet" href="/assets/jquery.cleditor.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/assets/jquery-te-1.4.0.css">
 
-<script>
-  $(document).ready(function () { $("#input").cleditor(); });
-</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="/assets/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 
 <%= form_for @news, :html => { :class => 'form-horizontal', multipart: true } do |f| %>
     <%= f.select :category, [["Sports","Sports"], ["Entertainment","Entertainment"], ["National","National"],
@@ -14,7 +11,7 @@
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :description, :class => 'text_field', id: 'input' %>
+      <%= f.text_area :description, :class => 'jqte-test' %>
     </div>
   </div>
  
@@ -49,3 +46,14 @@
 <% end %>
 
 
+<script>
+  $('.jqte-test').jqte();
+  
+  // settings of status
+  var jqteStatus = true;
+  $(".status").click(function()
+  {
+    jqteStatus = jqteStatus ? false : true;
+    $('.jqte-test').jqte({"status" : jqteStatus})
+  });
+</script>
