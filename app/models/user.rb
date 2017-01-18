@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-
+  has_many  :news
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
