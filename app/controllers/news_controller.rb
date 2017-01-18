@@ -6,13 +6,12 @@ def index
 
 end
 def new
-#   unless current_user.state == true
- if current_user.state == true
-	@news = News.new
+if current_user.state == true
+  @news = News.new
  else
- 
+  flash[:error] = "your account has not been activated"
+  redirect_to root_path
  end
-#    end
 
 end
 
