@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="/assets/pagination.css">
 <style type="text/css">
 	figure img
 	{
@@ -6,20 +7,35 @@
 	}
 </style>
 <div class="container-fluid">
-		<%= link_to "News", news_index_path, class:"sidebar-link active"%>
-		<div class="panel-heading" style="background-color:#6dae4e;">
+		<!--%= link_to "News", news_index_path, class:"sidebar-link active"%-->
+		<!--div class="panel-heading" style="background-color:#6dae4e;">
 			News(<%= @news.length %>)
-		</div>
+		</div-->
 		<div class="row fh5co-post-entry">
 			<% @news.each do |news| %>
+				<%= link_to news do %>
 				<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
 					<figure>
-						<a href="#"><%= image_tag news.news_photos[0].image.url if news.news_photos.length > 0 %></a>
+						<%= image_tag news.news_photos[0].image.url if news.news_photos.length > 0 %>
 					</figure>
-					<span class="fh5co-meta"><a href="#"><%= link_to news.title, news %></a></span>
-					<h2 class="fh5co-article-title"><%= link_to "Edit", edit_news_path(news), class: "btn btn-green"%></h2>
+					<span class="fh5co-meta"><%= link_to news.category, news %></span>
+					<h2 class="fh5co-article-title"><%= news.title %></h2>
+					<h2 class="fh5co-article-title"><!--%= link_to "Edit", edit_news_path(news), class: "btn btn-green"%--></h2>
 					<span class="fh5co-meta fh5co-date">March 6th, 2016</span>
 				</article>
-			<% end %>	
+				<% end %>
+			<% end %>
 		</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="digg_pagination">
+			    <div class="page_info">
+			      <%= page_entries_info @posts %>
+			    </div>
+    				<%= will_paginate @posts, :container => false %>
+  			</div>
+		</div>
+	</div>
 </div>			

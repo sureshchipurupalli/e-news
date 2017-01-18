@@ -2,7 +2,10 @@ class NewsController < ApplicationController
 before_action :set_news, only: [:show, :edit, :update]
 before_action :authenticate_user!, except: [:show, :index ]
 def index
- @news = News.all
+# @news = News.all(:order => "created_at DESC")
+# @news = News.all
+# @news = News.all(:page => params[:news],:per_page => 10)
+@news = News.paginate(:page => params[:page],  :per_page => 12).order('id DESC')
 
 end
 def new
