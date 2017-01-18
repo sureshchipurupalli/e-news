@@ -6,9 +6,9 @@ def index
 
 end
 def new
-   unless current_user.state == true
+#   unless current_user.state == true
 	@news = News.new
-    end
+#    end
 
 end
 
