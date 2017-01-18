@@ -5,6 +5,15 @@
 		width: 100%;
 		height: 319px;
 	}
+	.fh5co-article-title
+	{
+		white-space: nowrap; 
+	    width: 100%; 
+	    overflow: hidden;
+	    text-overflow: ellipsis; 
+	   
+	}
+
 </style>
 <div class="container-fluid">
 		<!--%= link_to "News", news_index_path, class:"sidebar-link active"%-->
@@ -14,11 +23,11 @@
 		<div class="row fh5co-post-entry">
 			<% @news.each do |news| %>
 				<%= link_to news do %>
-				<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<article class="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xxs-12 animate-box">
 					<figure>
 						<%= image_tag news.news_photos[0].image.url if news.news_photos.length > 0 %>
 					</figure>
-					<span class="fh5co-meta"><%= link_to news.category, news %></span>
+					<span class="fh5co-meta"><%=  news.category %></span>
 					<h2 class="fh5co-article-title"><%= news.title %></h2>
 					<h2 class="fh5co-article-title"><!--%= link_to "Edit", edit_news_path(news), class: "btn btn-green"%--></h2>
 					<span class="fh5co-meta fh5co-date">March 6th, 2016</span>
@@ -34,7 +43,11 @@
 			    <div class="page_info">
 			      <%= page_entries_info @posts %>
 			    </div>
+			    <center>
+			    <div class="paginate-width" align="center">
     				<%= will_paginate @posts, :container => false %>
+    			</div>
+    			</center>		
   			</div>
 		</div>
 	</div>
