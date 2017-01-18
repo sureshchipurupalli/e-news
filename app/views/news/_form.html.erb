@@ -19,7 +19,7 @@
       <%= f.text_field :title, :class => 'text_field' %>
     </div>
   </div>
-
+<%= f.hidden_field :user_id, value: current_user.id %>
 
 
   <div class="control-group">
