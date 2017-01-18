@@ -7,7 +7,11 @@ def index
 end
 def new
 #   unless current_user.state == true
+ if current_user.state == true
 	@news = News.new
+ else
+ 
+ end
 #    end
 
 end
