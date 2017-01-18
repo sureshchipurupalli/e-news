@@ -86,7 +86,7 @@ private
   end 
 
 def news_params
-    params.require(:news).permit( :title, :description, :category, :keywords, :user_id)
+    params.require(:news).permit( :title, :description, :category, :keywords, :user_id, :email)
   end
 
 
