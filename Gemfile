@@ -55,10 +55,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "paperclip", "~> 4.2"
 gem 'devise'
 gem 'listen', '~> 3.0.5'
-gem 'bootstrap-sass'
-gem 'high_voltage'
-group :development do
-  gem 'better_errors'
-  gem 'rails_layout'
-  gem 'spring-commands-rspec'
-end
