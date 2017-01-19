@@ -1,3 +1,30 @@
 <h3>User</h3>
 <p>Email: <%= @user.email if @user.email %></p>
+<% if @user.user_name.present? %>
+<p>Name: <%= @user.user_name if @user.user_name %></p>
+
+<% else %>
+<p>Name: Not Mentioned </p>
+
+<% end %>
+
+<% if @user.state == true %>
+<p>Status: Active </p>
+
+<% else %>
+<p>Status: Inactive </p>
+
+<% end %>
+
+<% if @user.role == 0 %>
+<p>Role: User </p>
+
+
+<% else %>
+<p>Role: Admin </p>
+
+<% end %>
+
+
+ 
 
