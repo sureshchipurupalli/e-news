@@ -12,8 +12,9 @@
                                 ["International","International"],["Arts","Arts"],], {id: 'category', prompt: 'Select...'}, :required => false, class: 'form-control' %>
               </div>                  
           </div>
-        </div> 
-       
+            </div> 
+         <%= f.hidden_field :user_id, value: current_user.id %>
+         <%= f.hidden_field :email, value: current_user.email %>       
         <div class="row">
           <div class="col-md-12">
             <%= f.label :description, :class => 'control-label' %>
@@ -31,8 +32,6 @@
             </div>  
           </div>
         </div>
-
-<<<<<<< HEAD
         <div class="row">
           <div class="col-md-12">
             <%= f.label :keywords, :class => 'control-label' %>
@@ -40,34 +39,7 @@
               <%= f.text_field :keywords, :class => 'form-control' %>
             </div>
           </div>  
-        </div>
-=======
-<%= form_for @news, :html => { :class => 'form-horizontal', multipart: true } do |f| %>
-    <%= f.select :category, [["Sports","Sports"], ["Entertainment","Entertainment"], ["National","National"],
-                      ["International","International"],["Arts","Arts"],], id: 'category', prompt: 'Select...', :required => false, class: 'form-control' %>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :description, :class => 'jqte-test' %>
-    </div>
-  </div>
- 
- <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :title, :class => 'text_field' %>
-    </div>
-  </div>
-<%= f.hidden_field :user_id, value: current_user.id %>
-
-
-  <div class="control-group">
-    <%= f.label :keywords, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :keywords, :class => 'text_field' %>
-    </div>
-  </div>
->>>>>>> d4f085d4e834d91b3f043ff3be197c8a790d3134
+        </div>  
 
         <div class="row">
           <div class="col-md-12">
