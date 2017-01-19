@@ -1,29 +1,32 @@
-<h3>User</h3>
-<p>Email: <%= @user.email if @user.email %></p>
-<% if @user.user_name.present? %>
-<p>Name: <%= @user.user_name if @user.user_name %></p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<% if (@role_id == 0) %>
+				<h3><b>User</b></h3>
+			<% else %>
+				<h3>Admin</h3>
+			<% end %>	
+				<p><b>Email:</b> <%= @user.email if @user.email %></p>
+				<% if @user.user_name.present? %>
+					<p>Name: <%= @user.user_name if @user.user_name %></p>
+				<% else %>
+					<p>Name: Not Mentioned </p>
+				<% end %>
 
-<% else %>
-<p>Name: Not Mentioned </p>
+				<% if @user.state == true %>
+					<p>Status: Active </p>
+				<% else %>
+					<p>Status: Inactive </p>
+				<% end %>
 
-<% end %>
-
-<% if @user.state == true %>
-<p>Status: Active </p>
-
-<% else %>
-<p>Status: Inactive </p>
-
-<% end %>
-
-<% if @user.role == 0 %>
-<p>Role: User </p>
-
-
-<% else %>
-<p>Role: Admin </p>
-
-<% end %>
+				<% if (@role_id == 0) %>
+					<p>Role: User </p>
+				<% else %>
+					<p>Role: Admin </p>
+				<% end %>
+		</div>
+	</div>
+</div>				
 
 
  
