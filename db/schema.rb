@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119051606) do
+ActiveRecord::Schema.define(version: 20170119070648) do
 
   create_table "news", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "title",       limit: 65535
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170119051606) do
     t.boolean  "state",                     default: false
     t.integer  "user_id"
     t.string   "email"
+    t.string   "user_name"
   end
 
   create_table "news_photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
