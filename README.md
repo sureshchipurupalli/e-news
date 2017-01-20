@@ -5,6 +5,8 @@ application up and running.
 
 Things you may want to cover:
 TRUE OBSERVER
+
+E-news
 * ...
 # e-news
 # e-news
