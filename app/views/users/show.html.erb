@@ -1,29 +1,47 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<% if (@role_id == 0) %>
-				<h3><b>User</b></h3>
-			<% else %>
-				<h3>Admin</h3>
-			<% end %>	
-				<p><b>Email:</b> <%= @user.email if @user.email %></p>
-				<% if @user.user_name.present? %>
-					<p>Name: <%= @user.user_name if @user.user_name %></p>
-				<% else %>
-					<p>Name: Not Mentioned </p>
-				<% end %>
-
-				<% if @user.state == true %>
-					<p>Status: Active </p>
-				<% else %>
-					<p>Status: Inactive </p>
-				<% end %>
-
-				<% if (@role_id == 0) %>
-					<p>Role: User </p>
-				<% else %>
-					<p>Role: Admin </p>
-				<% end %>
+			<div class="row">
+				<div class="col-md-12">
+					<% if (@role_id == 0) %>
+						<h3><b>User</b></h3>
+					<% else %>
+						<h3><b>Admin</b></h3>
+					<% end %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">			
+					<p><b>Email:</b> <%= @user.email if @user.email %></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">		
+					<% if @user.user_name.present? %>
+						<p><b>Name:</b> <%= @user.user_name if @user.user_name %></p>
+					<% else %>
+						<p><b>Name:</b> Not Mentioned </p>
+					<% end %>
+				</div>	
+			</div>
+			<div class="row">
+				<div class="col-md-12">	
+					<% if @user.state == true %>
+						<p><b>Status:</b> Active </p>
+					<% else %>
+						<p><b>Status:</b> Inactive </p>
+					<% end %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">		
+					<% if (@role_id == 0) %>
+						<p><b>Role:</b> User </p>
+					<% else %>
+						<p><b>Role:</b> Admin </p>
+					<% end %>
+				</div>
+			</div>		
 		</div>
 	</div>
 </div>				

@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="/assets/pagination.css">
+<link rel="stylesheet" type="text/css" href="/assets/hover-effect.css">
 <style type="text/css">
 	figure img
 	{
@@ -13,6 +14,11 @@
 	    text-overflow: ellipsis; 
 	   
 	}
+	
+	.posted-view
+	{
+		color: #fff;
+	}
 
 </style>
 <div class="container-fluid">
@@ -22,19 +28,56 @@
 		</div-->
 		<div class="row fh5co-post-entry">
 			<% @news.each do |news| %>
-				<%= link_to news do %>
+			
 				<article class="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xxs-12 animate-box">
-					<figure>
-						<%= image_tag news.news_photos[0].image.url if news.news_photos.length > 0 %>
-					</figure>
+					<div class="hovereffect">
+						<figure>
+							<%= link_to news do %>
+							<%= image_tag news.news_photos[0].image.url if news.news_photos.length > 0 %>
+							<% end %>
+						</figure>
+						<% if user_signed_in? %>
+							<% if current_user.id == news.user.id || current_user.admin? %>
+								<div class="overlay">
+									<% if news.user_name.present? %>
+					                	<h3 class="posted-view">Posted By <%= news.user_name %></h3>
+					                <% else %>
+					                	<h3>Posted By True Observer</h3>	
+					                <% end %>	
+									<%= link_to "Edit", edit_news_path(news), class: "info" %>
+									<%= link_to 'Delete', news_path(news), :method => 'delete', data: {confirm: "Are you sure?"}, :class => 'info' %><br>
+									<%= link_to "Qucik View", news_path(news), class: "info" %>
+								</div>
+							<% end %>	
+			            <% else %>
+			            	<div class="overlay">
+			            		<% if news.user_name.present? %>
+				                	<h3>Posted By <%= news.user_name %></h3>
+				                <% else %>
+				                	<h3>Posted By True Observer</h3>
+				                <% end %>	 
+								<%= link_to "Qucik View", news_path(news), class: "info" %>
+				            </div>
+			            <% end %>
+					</div>
+					<%= link_to news do %>
 					<span class="fh5co-meta"><%=  news.category %></span>
 					<h2 class="fh5co-article-title"><%= news.title %></h2>
-                    <h2 class="fh5co-article-title"><!--%= link_to "Edit", edit_news_path(news), class: "btn btn-green"%--></h2>
-					<span class="fh5co-meta">Posted By <%= news.email %></span>
+					<!--% if current_user.id == news.user.id || current_user.admin? %>
+                    	<!--%= link_to "Edit", edit_news_path(news), class: "btn btn-mini" %>
+                    	<!--%= link_to 'Delete', news_path(news), :method => 'delete', data: {confirm: "Are you sure?"}, :class => 'btn btn-mini' %>
+                    <!--% end %-->
+                                        <% if news.user_name.present? %>
+					<span class="fh5co-meta">Posted By <%= news.user_name %></span>
+                                        <% else %>
+                                        <p> Posted By: True Observer </p>
+                                         <% end %> 
+                                
 
-					<span class="fh5co-meta fh5co-date">March 6th, 2016</span>
+					<span class="fh5co-meta fh5co-date"> <%= news.created_at.to_time.strftime("%B %d, %Y") %></span>
+					<% end %>
 				</article>
-				<% end %>
+			
 			<% end %>
 		</div>
 </div>
