@@ -1,6 +1,20 @@
 <link type="text/css" rel="stylesheet" href="/assets/jquery-te-1.4.0.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="/assets/jquery-te-1.4.0.min.js" charset="utf-8"></script>
+<style>
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    text-align: right;
+    opacity: 0;
+    background: #6dae4e;
+    cursor: inherit;
+    display: block;
+}
+</style>
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <%= form_for @news, :html => { :class => 'form-horizontal', multipart: true } do |f| %>
